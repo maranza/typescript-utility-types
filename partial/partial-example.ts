@@ -3,15 +3,19 @@ interface PartialExample {
     enableHyperJump: boolean;
 }
 
-// Without using partial.
-const updateStarship = (id: number, starship: PartialExample) => {};
+// =============================================================
+//                   WITHOUT Partial
+// =============================================================
+const updateStarship = (id: number, starship: PartialExample) => {}; // Without using partial.
 
-// we have to provide all fields of the object when updating only one, otherwise it throws an error
-updateStarship(1, {name: 'explorer', enableHyperJump: true});
+updateStarship(1, {name: 'explorer', enableHyperJump: true}); // we have to provide all fields of the object when updating only one, otherwise it throws an error
 
-// =========== Using Partial ==============
+
+// =============================================================
+//                   Using Partial
+// =============================================================
 
 const updateStarshipPartial = (id: number, starship: Partial<PartialExample>) => {};
 
 // only the field we want to update
-updateStarshipPartial(1, {name: 'explorer'});
+updateStarshipPartial(2, {name: 'explorer'});
