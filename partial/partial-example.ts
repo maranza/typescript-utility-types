@@ -12,14 +12,14 @@ const ship1 = {
 //                   WITHOUT Partial
 // =============================================================
 const updateStarship = (id: number, fieldsToUpdate: PartialExample) => {
-    return {...ship1, fieldsToUpdate};
+    return {...ship1, ...fieldsToUpdate};
 }; // Without using partial.
-const printStarship = () => {
-    console.log(ship1)
+const printStarship = (obj: any) => {
+    console.log(obj)
 };
 
-updateStarship(1, {name: 'No Partial', enableHyperJump: true}); // we have to provide all fields of the object when updating only one, otherwise it throws an error
-printStarship();
+var updateStarship1 = updateStarship(1, {name: 'No Partial', enableHyperJump: true}); // we have to provide all fields of the object when updating only one, otherwise it throws an error
+printStarship(updateStarship1);
 
 
 // =============================================================
@@ -27,12 +27,12 @@ printStarship();
 // =============================================================
 
 const updateStarshipPartial = (id: number, fieldsToUpdate: Partial<PartialExample>) => {
-    return {...ship1, fieldsToUpdate}
+    return {...ship1, ...fieldsToUpdate}
 };
-const printStarshipPartial = () => {
-    console.log(ship1);
+const printStarshipPartial = (obj1: any) => {
+    console.log(obj1);
 };
 
 // only the field we want to update
-updateStarshipPartial(2, {name: 'With Partial'});
-printStarship();
+var updateStarshipPartial1 = updateStarshipPartial(2, {name: 'With Partial'});
+printStarshipPartial(updateStarshipPartial1);
